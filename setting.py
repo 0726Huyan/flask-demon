@@ -1,8 +1,9 @@
 from flask import Config
 
 
-class MysqlConfig(object):
+class MysqlConfig(Config):
     #配置数据库信息
+    #CACHE_TYPE='simple'
     SQLALCHEMY_DATABASE_URI= "mysql+pymysql://root:123456@localhost/flaskweb"
     #配置flask配置对象中键：SQLALCHEMY_COMMIT_TEARDOWN,设置为True,应用会自动在每次请求结束后提交数据库中变动
 
@@ -21,10 +22,15 @@ class MysqlConfig(object):
     MAIL_DEFAULT_SENDER = "1213606635@qq.com"
 
     # Celery configuration
-    CELERY_BROKER_URL= 'redis://localhost:6379/0'
-    CELERY_RESULT_BACKEND= 'redis://localhost:6379/0'
+    CELERY_BROKER_URL= 'redis://127.0.0.1:6379/0'
+    CELERY_RESULT_BACKEND= 'redis://127.0.0.1:6379/0'
 
     # Initialize extensionsc
+    CACHE_TYPE='redis'
+    CACHE_REDIS_HOST='localhost'
+    CACHE_REDIS_PORT='6379'
+    CACHE_REDIS_PASSWORD='password'
+    CACHE_REDIS_DB = '0'
 class ProdConfig(Config):
     pass
 class DevConfig(Config):

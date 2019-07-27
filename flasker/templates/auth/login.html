@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Log In{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+   <form method="post">
+      <table>
+          <tr><td>{{ form.username.label }}</td><td>{{ form.username }}</td><td>{{ form.username.errors[0] }}</td></tr>
+          <tr>{ form.password.label }}{{ form.password }}{{ form.password.errors[0] }}</tr>
+          <tr>{{ form.re_password.label }}{{ form.re_password }}{{ form.re_password.errors[0] }}</tr>
+          <tr>{{ form.email.label }}{{ form.email }}{{ form.email.errors[0] }}</tr>
+          <tr>{{ form.root }}</tr>
+          <input type="submit" value="Register">
+
+      </table>
+    </form>
+{% endblock %}
